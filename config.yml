@@ -1,0 +1,10 @@
+debug:
+  guild: 934896901256515714
+  state: True
+  log_file: True
+
+bot:
+  token: !ENV "DISCORD_TOKEN"
+  owner_id: !ENV "OWNER_ID"
+  app_id: !ENV "DISCORD_APP_ID"
+  status: "space invaders"
