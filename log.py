@@ -1,12 +1,11 @@
 import logging
 import sys
-
 from logging import handlers
 from pathlib import Path
 
-from constants import config
-
 import coloredlogs
+
+from constants import config
 
 log_level = logging.DEBUG if config.debug.state else logging.INFO
 

@@ -43,3 +43,8 @@ class Core(Group, name="core"):
         if await inter_timeout(interaction, view) and view.value:
             log.info("Restart command received")
             os.execv(sys.executable, ['py'] + sys.argv)
+
+    @command(name="test", description="Debug command")
+    @check(is_bot_owner)
+    async def _debug_cmd(self, interaction: Interaction) -> None:
+        await interaction.response.send_message("Cheese")

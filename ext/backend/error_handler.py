@@ -1,23 +1,20 @@
-from log import log
-
 from discord import Interaction
-from discord.errors import NotFound
 from discord.app_commands import CommandTree, AppCommandError, Command
+from discord.errors import NotFound, HTTPException, Forbidden
+
+from log import log
 
 
 class CmdTree(CommandTree):
     """A subclass of CommandTree to override on_error"""
 
-    async def on_error(
-        self,
-        interaction: Interaction,
-        command: Command,
-        error: AppCommandError,
-    ) -> None:
+    async def on_error(self, interaction: Interaction, command: Command, error: AppCommandError) -> None:
         # Per usual, getting the original error
         error = getattr(error, 'original', error)
 
-        if isinstance(error, NotFound):
-            log.debug("Not found error matteee")
+        log.debug("Reached error_handler")
 
-        raise error
+        if isinstance(error, (NotFound, HTTPException, Forbidden)):
+            log.warn(f"'{interaction.command.name}' command raised {error.status} {error.__class__}")
+        else:
+            raise error
