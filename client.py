@@ -6,7 +6,6 @@ from datetime import datetime
 from aiohttp import ClientSession
 
 import discord
-import asyncpg
 from discord import Client, Intents
 from discord.app_commands import CommandTree
 

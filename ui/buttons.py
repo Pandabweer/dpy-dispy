@@ -1,8 +1,6 @@
 from discord import ButtonStyle, Interaction, ui
 from discord.ui import View, Button
 
-from log import log
-
 
 class Confirm(View):
     def __init__(self,
@@ -26,7 +24,3 @@ class Confirm(View):
         await interaction.response.edit_message(content=self.canc_msg, view=None)
         self.value = False
         self.stop()
-
-    async def on_timeout(self) -> None:
-        log.debug("Timeout")
-
