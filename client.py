@@ -1,4 +1,5 @@
 from ext.utils import Core
+from ext.backend.error_handler import CmdTree
 from constants import config
 from log import log
 
@@ -7,7 +8,6 @@ from aiohttp import ClientSession
 
 import discord
 from discord import Client, Intents
-from discord.app_commands import CommandTree
 
 
 class Dispy(Client):
@@ -21,7 +21,7 @@ class Dispy(Client):
             owner_id=self.owner_id
         )
         self.launch_time = datetime.now()
-        self.tree = CommandTree(self)
+        self.tree = CmdTree(self)
 
     async def setup_hook(self) -> None:
         self.https_session = ClientSession()

@@ -1,14 +1,23 @@
-from typing import Optional, Union, Any
+from log import log
 
 from discord import Interaction
-from discord.app_commands import CommandTree, ContextMenu, AppCommandError, Command
+from discord.errors import NotFound
+from discord.app_commands import CommandTree, AppCommandError, Command
 
 
 class CmdTree(CommandTree):
+    """A subclass of CommandTree to override on_error"""
+
     async def on_error(
         self,
         interaction: Interaction,
-        command: Optional[Union[ContextMenu, Command[Any, ..., Any]]],
+        command: Command,
         error: AppCommandError,
     ) -> None:
-        pass
+        # Per usual, getting the original error
+        error = getattr(error, 'original', error)
+
+        if isinstance(error, NotFound):
+            log.debug("Not found error matteee")
+
+        raise error
