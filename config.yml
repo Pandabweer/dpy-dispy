@@ -1,6 +1,7 @@
 debug:
   guild: 934896901256515714
   state: True
+  global_cmds: False
   log_file: True
 
 bot:

@@ -28,7 +28,8 @@ class Dispy(Client):
 
         self.tree.add_command(Core(), guild=discord.Object(id=config.debug.guild))
         await self.tree.sync(guild=discord.Object(id=config.debug.guild))
-        await self.tree.sync()
+        if config.debug.global_cmds:
+            await self.tree.sync()
 
     async def close(self) -> None:
         await self.https_session.close()
