@@ -16,5 +16,6 @@ class CmdTree(CommandTree):
 
         if isinstance(error, (NotFound, HTTPException, Forbidden)):
             log.warn(f"'{interaction.command.name}' command raised {error.status} {error.__class__}")
+            raise error
         else:
             raise error
