@@ -13,8 +13,8 @@ def unqualify(name: str) -> str:
     return name.rsplit(".", maxsplit=1)[-1]
 
 
-def walk_extensions() -> Iterator[str]:
-    """Yield extension names from the bot.exts subpackage."""
+def walk_extensions() -> Iterator[Group]:
+    """Yield extension names from the exts subpackage."""
 
     def on_error(err_name: str) -> NoReturn:
         raise ImportError(name=err_name)  # pragma: no cover
@@ -28,8 +28,6 @@ def walk_extensions() -> Iterator[str]:
             imported = importlib.import_module(module.name)
             for name, obj in inspect.getmembers(imported):
                 if inspect.isclass(obj) and issubclass(obj, Group):
-                    # https://github.com/Rapptz/discord.py/blob/master/discord/ext/commands/bot.py#L899
-                    # obj.__name__
                     yield obj
 
 
