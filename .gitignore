@@ -2,7 +2,7 @@
 .idea/
 ext/utils/fninepf.py
 ext/utils/eigmus.py
-Tekkit_Server_v1.2.9g-2/
+ext/servers/Tekkit_Server_v1.2.9g-2/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

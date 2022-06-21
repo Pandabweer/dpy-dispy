@@ -10,8 +10,8 @@ from ui.buttons import Confirm
 from utils.view import inter_timeout
 
 
-class Core(Group, name="core"):
-    """Core functionality of the bot"""
+class Core(Group, name="core", description="Core functionality of the bot."):
+    """Core functionality of the bot."""
 
     @command(name="stop", description="Shutdown the bot")
     @describe(forced="Forced shutdown of the bot")
@@ -43,8 +43,3 @@ class Core(Group, name="core"):
         if await inter_timeout(interaction, view) and view.value:
             log.info("Restart command received")
             os.execv(sys.executable, ['py'] + sys.argv)
-
-    @command(name="test", description="Debug command")
-    @check(is_bot_owner)
-    async def _debug_cmd(self, interaction: Interaction) -> None:
-        await interaction.response.send_message("Cheese")

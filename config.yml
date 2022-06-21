@@ -9,3 +9,10 @@ bot:
   owner_id: !ENV "OWNER_ID"
   app_id: !ENV "DISCORD_APP_ID"
   status: "space invaders"
+
+db:
+  host: !ENV "DB_HOST"
+  port: !ENV "DB_PORT"
+  user: !ENV "DB_USER"
+  database: !ENV "DB_DATABASE"
+  password: !ENV "DB_PASSWORD"
