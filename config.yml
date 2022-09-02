@@ -10,9 +10,19 @@ bot:
   app_id: !ENV "DISCORD_APP_ID"
   status: "space invaders"
 
+spotify:
+  id: !ENV "SPOTIFY_ID"
+  secret: !ENV "SPOTIFY_SECRET"
+
 db:
   host: !ENV "DB_HOST"
   port: !ENV "DB_PORT"
   user: !ENV "DB_USER"
   database: !ENV "DB_DATABASE"
   password: !ENV "DB_PASSWORD"
+
+music:
+  vc_timeout: 600
+  max_trackname_history_lenght: 10
+  max_history_length: 10
+  max_song_preload: 5

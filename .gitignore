@@ -1,7 +1,8 @@
 # Custom
 .idea/
-ext/utils/fninepf.py
-ext/utils/eigmus.py
+ffmpeg.exe
+ext/rexts/
+ext/music/DingoLingo-master/
 ext/servers/Tekkit_Server_v1.2.9g-2/
 
 # Byte-compiled / optimized / DLL files
